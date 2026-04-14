@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The codesync Look - Collaborative IDE Design System */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Core backgrounds - Matched to globals.css Dark Mode (Warm/Dark) */
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    
+    /* Glass cards */
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    
+    /* Primary gradient colors - Orange Theme */
+    --primary: 20.5 90.2% 48.2%; /* Orange from globals dark mode */
+    --primary-foreground: 60 9.1% 97.8%;
+    
+    /* Secondary */
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    
+    /* Muted */
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    
+    /* Accent */
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 20.5 90.2% 48.2%;
+    
+    --radius: 1rem;
+    
+    /* codesync specific colors - Shifted to Orange/Amber/Red spectrum */
+    --codesync-pink: 20 90% 60%;      /* Deep Orange */
+    --codesync-purple: 30 95% 55%;    /* Amber/Orange */
+    --codesync-indigo: 0 85% 60%;     /* Reddish Orange */
+    --codesync-cyan: 45 95% 60%;      /* Gold/Yellow */
+    --codesync-lime: 24 95% 53%;      /* Primary Orange */
+    --codesync-hot-pink: 10 90% 65%;  /* Coral */
+    
+    /* Editor colors */
+    --editor-bg: 20 14.3% 6%; /* Slightly lighter than bg */
+    --editor-selection: 210 90% 55% / 0.32;
+    --editor-line: 60 9.1% 97.8%;
+    
+    /* Sidebar */
+    --sidebar-background: 12 6.5% 6%;
+    --sidebar-foreground: 60 9.1% 97.8%;
+    --sidebar-primary: 20.5 90.2% 48.2%;
+    --sidebar-primary-foreground: 60 9.1% 97.8%;
+    --sidebar-accent: 12 6.5% 15.1%;
+    --sidebar-accent-foreground: 60 9.1% 97.8%;
+    --sidebar-border: 12 6.5% 15.1%;
+    --sidebar-ring: 20.5 90.2% 48.2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border/10;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  
+  /* Gradient text - Modified to Orange/Amber */
+  .gradient-text {
+    @apply bg-gradient-to-r from-orange-500 via-amber-500 to-red-500 bg-clip-text text-transparent;
+  }
+  
+  /* Sunset gradient button - Modified to Orange/Amber */
+  .gradient-button {
+    @apply bg-gradient-to-r from-orange-500 via-amber-500 to-red-500 text-white font-semibold;
+    @apply shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40;
+    @apply transition-all duration-300 hover:-translate-y-0.5;
+  }
+  
+  /* Outline button with gradient border */
+  .outline-gradient-button {
+    @apply relative bg-transparent text-white font-semibold overflow-hidden;
+    @apply border border-white/20 hover:bg-white/10;
+    @apply transition-all duration-300 hover:-translate-y-0.5;
+  }
+  
+  /* Glow input - Modified ring color */
+  .glow-input {
+    @apply bg-white/5 border border-white/10 rounded-xl px-6 py-4;
+    @apply text-white placeholder:text-white/40;
+    @apply focus:outline-none focus:ring-2 focus:ring-orange-400/50 focus:border-orange-400/50;
+    @apply transition-all duration-300;
+  }
+  
+  /* Floating animation for cards - Modified shadow color */
+  .float-hover {
+    @apply transition-all duration-300 hover:-translate-y-1;
+    @apply hover:shadow-lg hover:shadow-orange-500/10;
+  }
+  
+  /* Cursor flag */
+  .cursor-flag {
+    @apply absolute -top-6 left-0 px-2 py-0.5 rounded text-xs font-medium whitespace-nowrap;
+    @apply animate-pulse;
+  }
+  
+  /* Avatar pulse when speaking */
+  .avatar-speaking {
+    @apply ring-2 ring-offset-2 ring-offset-transparent;
+    animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Toast notification style - Modified border */
+  .toast-achievement {
+    @apply glass-card px-4 py-3 flex items-center gap-3;
+    @apply border-l-4 border-l-orange-500;
+  }
+}
+
+@layer utilities {
+  /* Background mesh gradient animation - Updated HSL values to Orange/Red range */
+  .bg-mesh-gradient {
+    background: 
+      radial-gradient(at 40% 20%, hsl(24, 95%, 53%, 0.3) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(10, 80%, 60%, 0.2) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsl(45, 100%, 65%, 0.2) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, hsl(0, 95%, 60%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsl(30, 90%, 50%, 0.25) 0px, transparent 50%);
+  }
+  
+  /* Scrollbar styling */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(var(--codesync-purple) / 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px hsl(var(--codesync-purple) / 0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(30px, 10px) scale(1.05);
+  }
+}
