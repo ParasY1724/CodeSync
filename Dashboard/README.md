@@ -37,8 +37,8 @@ A modern, real-time collaborative code editor built for seamless pair programmin
 ## Quick Start
 
 ```bash
-git clone <YOUR_GIT_URL>
-cd <YOUR_PROJECT_NAME>
+git clone https://github.com/ParasY1724/OnlineJudger.git
+cd OnlineJudger
 npm install
 npm run dev
 ```
@@ -166,9 +166,9 @@ npm run dev
 The following are automatically configured by Lovable Cloud:
 
 ```env
-VITE_SUPABASE_URL=<auto-configured>
-VITE_SUPABASE_PUBLISHABLE_KEY=<auto-configured>
-VITE_SUPABASE_PROJECT_ID=<auto-configured>
+VITE_SUPABASE_URL=
+VITE_SUPABASE_PUBLISHABLE_KEY=
+VITE_SUPABASE_PROJECT_ID=
 ```
 
 
