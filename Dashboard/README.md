@@ -1,4 +1,4 @@
-# </> CollabCode - Real-Time Collaborative Code Editor
+# </> CodeSync - Real-Time Collaborative Code Editor
 
 A modern, real-time collaborative code editor built for seamless pair programming and team coding sessions. Create or join rooms instantly and code together with live cursor tracking, chat, and voice communication.
 
